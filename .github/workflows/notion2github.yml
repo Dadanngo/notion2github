@@ -14,7 +14,7 @@ jobs:
         uses: Dadanngo/notion2github@main
         with:
           database-url: 'https://www.notion.so/8d781cd4db8444198bd878056f94d8e0?v=da944c01a8c64ebb8b9468987ee3cffc'
-          docs-directory: docs/test
+          docs-directory: docs
           # filter-prop: Category
           # filter-value: Test
         env:
