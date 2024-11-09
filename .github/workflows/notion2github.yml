@@ -10,13 +10,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Notion2Github
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: |
+          npm install
+
+      - name: Run Notion2Github
         uses: Dadanngo/notion2github@main
         with:
           database-url: 'https://www.notion.so/8d781cd4db8444198bd878056f94d8e0?v=da944c01a8c64ebb8b9468987ee3cffc'
           docs-directory: docs
-          # filter-prop: Category
-          # filter-value: Test
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
 
@@ -27,3 +34,4 @@ jobs:
           commit_message: 'docs: Update docs (auto)'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
